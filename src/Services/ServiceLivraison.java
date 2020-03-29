@@ -24,24 +24,23 @@ public class ServiceLivraison {
     {
         conx = ConnexionBD.getinstance().getcnx();
     }
-    public void addClass(Livraison c) {
+    public void addlivraison(Livraison c) {
         try {
-            String requete = "insert into livreur (id,etat,adress,livreurid,ville,commande_id,type) values(?,?,?,?,?,?,?)";
+            String requete = "insert into livraison (etat,adresse,livreurid,ville,type) values(?,?,?,?,?)";
             PreparedStatement pst = conx.prepareStatement(requete);
-            pst.setInt(1, c.getId());
-            pst.setBoolean(2, c.getEtat());
-            pst.setString(3, c.getAdress());
-            pst.setInt(4, c.getLivreurid());
-            pst.setString(5, c.getVille());
-            pst.setInt(6, c.getCommande_id());
-            pst.setString(7, c.getType());
+            pst.setBoolean(1, c.getEtat());
+            pst.setString(2, c.getAdress());
+            pst.setInt(3, c.getLivreurid());
+            pst.setString(4, c.getVille());
+           // pst.setInt(5, c.getCommande_id());
+            pst.setString(5, c.getType());
             pst.executeUpdate();
             System.out.println("Livraison added !!!!");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }
-    public List<Livraison> ListLivreur() {
+    public List<Livraison> ListLivraison() {
         List<Livraison> Mylist = new ArrayList<>();
         try {
             String requete = "select * from livraison";
@@ -51,7 +50,7 @@ public class ServiceLivraison {
                 Livraison p = new Livraison();
                 p.setId(rs.getInt("id"));
                 p.setEtat(rs.getBoolean("etat"));
-                p.setAdress(rs.getString("adress"));
+                p.setAdress(rs.getString("adresse"));
                 p.setLivreurid(rs.getInt("livreurid"));
                 p.setVille(rs.getString("ville"));
                 p.setCommande_id(rs.getInt("commande_id"));
@@ -64,9 +63,9 @@ public class ServiceLivraison {
         }
         return Mylist;
     }
-    public void UpdateClasse(Livraison c) {
+    public void UpdateLivraison(Livraison c) {
         try {
-            String requete = "update Livarison set (id,etat,adress,livreurid,ville,commande_id,type) values(?,?,?,?,?,?,?) where ? = id";
+            String requete = "update Livarison set (id,etat,adresse,livreurid,ville,commande_id,type) values(?,?,?,?,?,?,?) where ? = id";
             PreparedStatement pst = conx.prepareStatement(requete);
              pst.setInt(1, c.getId());
             pst.setBoolean(2, c.getEtat());
@@ -82,7 +81,7 @@ public class ServiceLivraison {
         }
 
     }
-    public void DeleteClasse(Livraison cl) {
+    public void DeleteLivraison(Livraison cl) {
         try {
             String requete = "delete from Livraison where ? = id";
             PreparedStatement pst = conx.prepareStatement(requete);
