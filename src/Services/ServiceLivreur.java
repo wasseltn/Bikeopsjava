@@ -67,10 +67,22 @@ public class ServiceLivreur {
             pst.setInt(1, c.getId());
             pst.setBoolean(4, c.isEtat());
             pst.executeUpdate();
-            System.out.println("Classe Updated !!!");
+            System.out.println("Livreur Updated !!!");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
 
+    }
+    public void DeleteClasse(Livreur cl) {
+        try {
+            String requete = "delete from classes where ? = id";
+            PreparedStatement pst = conx.prepareStatement(requete);
+            pst.setInt(1, cl.getId());
+            pst.executeUpdate();
+            System.out.println("Livreur Deleted !!!!");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
     }
 }
