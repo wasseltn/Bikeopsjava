@@ -10,9 +10,11 @@ package Entities;
  * @author benfr
  */
 public class Livraison {
+
     private int id;
     private Boolean etat;
     private String adresse;
+
     private int livreurid;
     private String ville;
     private int commande_id;
@@ -25,6 +27,7 @@ public class Livraison {
         this.id = id;
         this.etat = etat;
         this.adresse = adresse;
+
         this.livreurid = livreurid;
         this.ville = ville;
         this.commande_id = commande_id;
@@ -33,7 +36,9 @@ public class Livraison {
 
     @Override
     public String toString() {
+
         return "Livraison{" + "id=" + id + ", etat=" + etat + ", adress=" + adresse + ", livreurid=" + livreurid + ", ville=" + ville + ", commande_id=" + commande_id + ", type=" + type + '}';
+
     }
 
     @Override
@@ -78,11 +83,13 @@ public class Livraison {
     }
 
     public String getAdress() {
+
         return adresse;
     }
 
     public void setAdress(String adresse) {
         this.adresse = adresse;
+
     }
 
     public int getLivreurid() {
@@ -116,6 +123,5 @@ public class Livraison {
     public void setType(String type) {
         this.type = type;
     }
-    
-    
+
 }
