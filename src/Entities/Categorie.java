@@ -6,36 +6,20 @@
 package Entities;
 
 import java.util.Objects;
-import javafx.beans.property.StringProperty;
 
 /**
  *
- * @author laoui
+ * @author Souhaiel
  */
-public class Commande {
-
-    private String date;
-    private int id;
-    private String etat;
-
-    public Commande(String date, int id, String etat) {
-        this.date = date;
-        this.id = id;
-        this.etat = etat;
-    }
-
-    public Commande(String date, String etat) {
-        this.date = date;
-        this.etat = etat;
-    }
+public class Categorie {
     
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
+    private int id;
+    private String type ;
+    
+    public Categorie(){} 
+    public Categorie(int id, String type) {
+        this.id = id;
+        this.type = type;
     }
 
     public int getId() {
@@ -46,17 +30,17 @@ public class Commande {
         this.id = id;
     }
 
-    public String getEtat() {
-        return etat;
+    public String getType() {
+        return type;
     }
 
-    public void setEtat(String etat) {
-        this.etat = etat;
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Override
     public String toString() {
-        return "Commande{" + "date=" + date + ", id=" + id + ", etat=" + etat + '}';
+        return "Categorie{" + "id=" + id + ", type=" + type + '}';
     }
 
     @Override
@@ -76,20 +60,16 @@ public class Commande {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Commande other = (Commande) obj;
+        final Categorie other = (Categorie) obj;
         if (this.id != other.id) {
             return false;
         }
-        if (!Objects.equals(this.etat, other.etat)) {
-            return false;
-        }
-        if (!Objects.equals(this.date, other.date)) {
+        if (!Objects.equals(this.type, other.type)) {
             return false;
         }
         return true;
     }
+  
     
     
-    
-
 }

@@ -5,37 +5,24 @@
  */
 package Entities;
 
-import java.util.Objects;
-import javafx.beans.property.StringProperty;
-
 /**
  *
- * @author laoui
+ * @author Souhaiel
  */
-public class Commande {
-
-    private String date;
-    private int id;
-    private String etat;
-
-    public Commande(String date, int id, String etat) {
-        this.date = date;
-        this.id = id;
-        this.etat = etat;
-    }
-
-    public Commande(String date, String etat) {
-        this.date = date;
-        this.etat = etat;
-    }
+public class Produit {
     
+    private int id;
+    private int qte;
+    private float prix;
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
+    /**
+     *
+     */
+    public Produit() {}
+    public Produit(int id, int qte, float prix) {
+        this.id = id;
+        this.qte = qte;
+        this.prix = prix;
     }
 
     public int getId() {
@@ -46,22 +33,30 @@ public class Commande {
         this.id = id;
     }
 
-    public String getEtat() {
-        return etat;
+    public int getQte() {
+        return qte;
     }
 
-    public void setEtat(String etat) {
-        this.etat = etat;
+    public void setQte(int qte) {
+        this.qte = qte;
+    }
+
+    public float getPrix() {
+        return prix;
+    }
+
+    public void setPrix(float prix) {
+        this.prix = prix;
     }
 
     @Override
     public String toString() {
-        return "Commande{" + "date=" + date + ", id=" + id + ", etat=" + etat + '}';
+        return "Produit{" + "id=" + id + ", qte=" + qte + ", prix=" + prix + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
+        int hash = 5;
         return hash;
     }
 
@@ -76,14 +71,14 @@ public class Commande {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Commande other = (Commande) obj;
+        final Produit other = (Produit) obj;
         if (this.id != other.id) {
             return false;
         }
-        if (!Objects.equals(this.etat, other.etat)) {
+        if (this.qte != other.qte) {
             return false;
         }
-        if (!Objects.equals(this.date, other.date)) {
+        if (Float.floatToIntBits(this.prix) != Float.floatToIntBits(other.prix)) {
             return false;
         }
         return true;
@@ -91,5 +86,4 @@ public class Commande {
     
     
     
-
 }
