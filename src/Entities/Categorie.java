@@ -14,13 +14,10 @@ import java.util.Objects;
 public class Categorie {
     
     private int id;
-    private String type ;
+    private String name ;
+    private String desc ;
     
     public Categorie(){} 
-    public Categorie(int id, String type) {
-        this.id = id;
-        this.type = type;
-    }
 
     public int getId() {
         return id;
@@ -30,22 +27,39 @@ public class Categorie {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
+    public String getName() {
+        return name;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public Categorie(int id, String name, String desc) {
+        this.id = id;
+        this.name = name;
+        this.desc = desc;
     }
 
     @Override
     public String toString() {
-        return "Categorie{" + "id=" + id + ", type=" + type + '}';
+        return "Categorie{" + "id=" + id + ", name=" + name + ", desc=" + desc + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
+        hash = 89 * hash + this.id;
+        hash = 89 * hash + Objects.hashCode(this.name);
+        hash = 89 * hash + Objects.hashCode(this.desc);
         return hash;
     }
 
@@ -64,11 +78,15 @@ public class Categorie {
         if (this.id != other.id) {
             return false;
         }
-        if (!Objects.equals(this.type, other.type)) {
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.desc, other.desc)) {
             return false;
         }
         return true;
     }
+    
   
     
     

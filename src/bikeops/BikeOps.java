@@ -7,8 +7,10 @@ package bikeops;
 
 import Entities.Livraison;
 import Entities.Livreur;
+import Entities.Produit;
 import Services.ServiceLivraison;
 import Services.ServiceLivreur;
+import Services.ServiceProduit;
 import utils.ConnexionBD;
 
 /**
@@ -22,12 +24,10 @@ public class BikeOps {
      */
     public static void main(String[] args) {
         ConnexionBD conx = ConnexionBD.getinstance();
-        Livreur l = new Livreur(0, "gh", "bf", true);
-        ServiceLivreur L = new ServiceLivreur();
-        L.addClass(l);
-        Livraison li = new Livraison(66, Boolean.TRUE, "mourouj", 5, "BenArous", 0, "zzzz");
-        ServiceLivraison LI = new ServiceLivraison();
-        LI.addlivraison(li);
+        Produit p = new Produit(1, 100, 100, "souhaiel"  , "souhaiel");
+        ServiceProduit L = new ServiceProduit();
+        L.supprimerProduit(2);
+        
 
     }
 }

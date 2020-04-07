@@ -5,25 +5,35 @@
  */
 package Entities;
 
+import java.util.Objects;
+
 /**
  *
  * @author Souhaiel
  */
 public class Produit {
-    
+
     private int id;
     private int qte;
-    private float prix;
+    private int prix;
+    private String name;
+    private String desc;
 
     /**
      *
      */
-    public Produit() {}
-    public Produit(int id, int qte, float prix) {
+    public Produit() {
+    }
+
+    public Produit(int id, int qte, int prix, String name, String desc) {
         this.id = id;
         this.qte = qte;
         this.prix = prix;
+        this.name = name;
+        this.desc = desc;
     }
+
+    
 
     public int getId() {
         return id;
@@ -41,22 +51,43 @@ public class Produit {
         this.qte = qte;
     }
 
-    public float getPrix() {
+    public int getPrix() {
         return prix;
     }
 
-    public void setPrix(float prix) {
+    public void setPrix(int prix) {
         this.prix = prix;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     @Override
     public String toString() {
-        return "Produit{" + "id=" + id + ", qte=" + qte + ", prix=" + prix + '}';
+        return "Produit{" + "id=" + id + ", qte=" + qte + ", prix=" + prix + ", name=" + name + ", desc=" + desc + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
+        hash = 97 * hash + this.id;
+        hash = 97 * hash + this.qte;
+        hash = 97 * hash + this.prix;
+        hash = 97 * hash + Objects.hashCode(this.name);
+        hash = 97 * hash + Objects.hashCode(this.desc);
         return hash;
     }
 
@@ -78,12 +109,16 @@ public class Produit {
         if (this.qte != other.qte) {
             return false;
         }
-        if (Float.floatToIntBits(this.prix) != Float.floatToIntBits(other.prix)) {
+        if (this.prix != other.prix) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.desc, other.desc)) {
             return false;
         }
         return true;
     }
-    
-    
-    
+
 }

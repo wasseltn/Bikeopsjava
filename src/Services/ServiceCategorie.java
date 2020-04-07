@@ -25,14 +25,15 @@ public class ServiceCategorie {
     {
         conx = ConnexionBD.getinstance().getcnx();
     }
-    public void addClass(Categorie c) {
+    public void addCategorie(Categorie c) {
         try {
-            String requete = "insert into produit (id,type) values(?,?)";
+            String requete = "insert into produit (id,name,description) values(?,?,?)";
             PreparedStatement pst = conx.prepareStatement(requete);
             pst.setInt(1, c.getId());
-            pst.setString(2, c.getType());
+            pst.setString(2, c.getName());
+            pst.setString(3, c.getDesc());
             pst.executeUpdate();
-            System.out.println("pCategorie ajouté !!!!");
+            System.out.println("Categorie ajouté !!!!");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
@@ -46,8 +47,9 @@ public class ServiceCategorie {
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 Categorie c = new Categorie();
-                c.setType(rs.getString("type"));
+                c.setName(rs.getString("name"));
                 c.setId(rs.getInt("id"));
+                c.setDesc(rs.getString("desc"));
                 Mylist.add(c);
             }
 
@@ -57,11 +59,12 @@ public class ServiceCategorie {
         return Mylist;
     }
     
-    public void UpdateClasse(Categorie c) {
+    public void UpdateCategorie(Categorie c) {
         try {
-            String requete = "update categorie set (id,type) values(?,?) where ? = id";
+            String requete = "update categorie set (id,name,description) values(?,?,?) where ? = id";
             PreparedStatement pst = conx.prepareStatement(requete);
-            pst.setString(2, c.getType());
+            pst.setString(3, c.getDesc());
+            pst.setString(2, c.getName());
             pst.setInt(1, c.getId());
             pst.executeUpdate();
             System.out.println("categorie mis a jour !!!");
