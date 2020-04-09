@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="bodybg" stylesheets="@souhaiel.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaces.AjoutUserController">
+   <children>
+      <Label layoutX="38.0" layoutY="143.0" text="id" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="14.0" layoutY="197.0" text="username" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="315.0" layoutY="143.0" text="mail" textFill="#fcfcfc">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="296.0" layoutY="200.0" text="mot de passe" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="144.0" layoutY="36.0" text="Ajouter Utilisateur" textFill="WHITE">
+         <font>
+            <Font size="39.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfidu" layoutX="102.0" layoutY="138.0" />
+      <TextField fx:id="tfusernameu" layoutX="102.0" layoutY="195.0" />
+      <TextField fx:id="tfmailu" layoutX="413.0" layoutY="138.0" />
+      <TextField fx:id="tfmdpu" layoutX="413.0" layoutY="198.0" />
+      <Button fx:id="btnu" layoutX="255.0" layoutY="291.0" mnemonicParsing="false" onAction="#saveruser" text="Valider" />
+      <Button fx:id="btnret" layoutX="334.0" layoutY="291.0" mnemonicParsing="false" onAction="#retour" text="Retour" />
+   </children>
+</AnchorPane>

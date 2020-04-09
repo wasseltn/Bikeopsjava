@@ -5,19 +5,25 @@
  */
 package bikeops;
 
+
 import Entities.Commande;
-import Services.ServicePanier;
+
+import Entities.Categorie;
+import Entities.Produit;
+import Services.ServiceCategorie;
+
 import Services.ServiceLivreur;
 import Services.ServiceLivraison;
 import Entities.Livreur;
 import Entities.Livraison;
 import Services.ServiceProduit;
-import Entities.Produit;
+
 import Entities.Panier;
 import Services.ServiceCommande;
 import Services.ServiceCoupon;
 import java.sql.Date;
 import java.sql.SQLException;
+
 import utils.ConnexionBD;
 
 /**
@@ -29,6 +35,7 @@ public class BikeOps {
     /**
      * @param args the command line arguments
      */
+
     public static void main(String[] args) throws SQLException {
        ConnexionBD conx = ConnexionBD.getinstance();
         Produit p = new Produit(1, 100, 100, "souhaiel"  , "souhaiel");
@@ -48,6 +55,9 @@ public class BikeOps {
        // sc.supprimerCommande(21);
       // ServicePanier sp = new ServicePanier();
       
+        Categorie c = new Categorie(1, "souhaiel", "souhaiel");
+        ServiceCategorie sc = new ServiceCategorie();
+        sc.addCategorie(c);
       
         ServiceCoupon scoupon = new ServiceCoupon();
         scoupon.generateCoupons();
@@ -56,5 +66,5 @@ public class BikeOps {
       
        //sp.displayAll();
        
-    }
+}
 }

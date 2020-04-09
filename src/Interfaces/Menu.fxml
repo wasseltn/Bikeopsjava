@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="bodybg" stylesheets="@souhaiel.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Interfaces.MenuController">
+   <children>
+      <Button fx:id="btnajoutp" layoutX="220.0" layoutY="122.0" mnemonicParsing="false" onAction="#ajout" text="Ajouter Produit">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnajoutc" layoutX="211.0" layoutY="216.0" mnemonicParsing="false" onAction="#ajoutc" text="Ajouter Categorie">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnaffp" layoutX="215.0" layoutY="170.0" mnemonicParsing="false" onAction="#affp" text="Afficher Produits">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnaffc" layoutX="206.0" layoutY="269.0" mnemonicParsing="false" onAction="#affc" text="Afficher Categories">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="181.0" layoutY="14.0" text="BikeOps" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="48.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

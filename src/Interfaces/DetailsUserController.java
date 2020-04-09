@@ -25,18 +25,16 @@ import javafx.stage.Stage;
  *
  * @author Souhaiel
  */
-public class DetailsController implements Initializable {
+public class DetailsUserController implements Initializable {
 
     @FXML
-    private TextField tfid2;
+    private TextField tfiddu;
     @FXML
-    private TextField tfqte2;
+    private TextField tfusernamedu;
     @FXML
-    private TextField tfprix2;
+    private TextField tfmaildu;
     @FXML
-    private TextField tfname2;
-    @FXML
-    private TextField tfdesc2;
+    private TextField tfmdpdu;
     @FXML
     private Button btnret;
 
@@ -49,27 +47,25 @@ public class DetailsController implements Initializable {
     }
 
     public void setTextID(String message) {
-        this.tfid2.setText(message);
+        this.tfiddu.setText(message);
     }
 
-    public void setTextQte(String message) {
-        this.tfqte2.setText(message);
+    public void setTextUsername(String message) {
+        this.tfusernamedu.setText(message);
     }
 
-    public void setTextPrix(String message) {
-        this.tfprix2.setText(message);
+    public void setTextMail(String message) {
+        this.tfmaildu.setText(message);
     }
-    public void setTextName(String message) {
-        this.tfname2.setText(message);
-    }
-    public void setTextDesc(String message) {
-        this.tfdesc2.setText(message);
+
+    public void setTextMdp(String message) {
+        this.tfmdpdu.setText(message);
     }
 
     @FXML
     private void retour(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
             Stage stage = (Stage) btnret.getScene().getWindow();
             stage.close();
             Scene scene = new Scene(root);
@@ -80,4 +76,5 @@ public class DetailsController implements Initializable {
             Logger.getLogger(AjoutProduitController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
 }
