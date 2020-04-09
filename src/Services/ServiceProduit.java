@@ -95,4 +95,24 @@ public class ServiceProduit {
             System.out.println("Produit supprimé !!");
         }
     }
+    
+        public Produit getProduitbyId( int produit_id) {
+            Produit p = new Produit();
+        try {
+            String requete = "select * from produit";
+            PreparedStatement pst = conx.prepareStatement(requete);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                p.setQte(rs.getInt("stock"));
+                p.setPrix(rs.getInt("prix"));
+                p.setId(rs.getInt("id"));
+                p.setName(rs.getString("name"));
+                p.setDesc(rs.getString("description"));
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return p;
+    }
 }

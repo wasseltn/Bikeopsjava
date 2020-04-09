@@ -5,6 +5,8 @@
  */
 package Interfaces;
 
+
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,10 +16,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+
 
 /**
  * FXML Controller class
@@ -38,6 +42,10 @@ public class MenuController implements Initializable {
     private Button btnajoutu;
     @FXML
     private Button btnaffu;
+    @FXML
+    private Button btncommande;
+    @FXML
+    private Button btncoupn;
 
     /**
      * Initializes the controller class.
@@ -106,13 +114,14 @@ public class MenuController implements Initializable {
                         Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
                     }
     }
-
     @FXML
-    private void ajoutu(ActionEvent event) {
-         try {
-                        Parent root = FXMLLoader.load(getClass().getResource("AjoutUser.fxml"));
-                        Stage stage = (Stage) btnaffc.getScene().getWindow();
+
+        
+    private void afficheCommande(ActionEvent event) throws IOException {
+        try {
                         stage.close();
+                        Stage stage = (Stage) btncommande.getScene().getWindow();
+                        Parent root = FXMLLoader.load(getClass().getResource("ListeCommande.fxml"));
                         Scene scene = new Scene(root);
 
                         stage.setScene(scene);
@@ -121,20 +130,48 @@ public class MenuController implements Initializable {
                         Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
                     }
     }
+        
 
     @FXML
-    private void affu(ActionEvent event) {
-         try {
+    private void afficheCoupon(ActionEvent event) throws IOException {
+        Parent list = FXMLLoader.load(getClass().getResource("CouponList.fxml"));
+        
+        Scene listE = new Scene(list);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.show();
+        window.setScene(listE);
+        
+        
+    }
+    }
+                    }
+                        Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (IOException ex) {
+                        stage.show();
+                        stage.setScene(scene);
+
+                        Scene scene = new Scene(root);
+                        Stage stage = (Stage) btnaffc.getScene().getWindow();
+                        stage.close();
                         Parent root = FXMLLoader.load(getClass().getResource("AfficherUser.fxml"));
-                        Stage stage = (Stage) btnaffc.getScene().getWindow();
-                        stage.close();
-                        Scene scene = new Scene(root);
+         try {
+    private void affu(ActionEvent event) {
+    @FXML
+    }
 
+    @FXML
+         try {
+    private void ajoutu(ActionEvent event) {
+                        Parent root = FXMLLoader.load(getClass().getResource("AjoutUser.fxml"));
+                        stage.close();
+                        Stage stage = (Stage) btnaffc.getScene().getWindow();
+                        Scene scene = new Scene(root);
                         stage.setScene(scene);
+
                         stage.show();
                     } catch (IOException ex) {
                         Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
                     }
-    }
+
     
 }

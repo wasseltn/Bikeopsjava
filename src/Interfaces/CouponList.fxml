@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="465.0" prefWidth="641.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaces.CouponListController">
+   <children>
+      <Text layoutX="35.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coupon List" wrappingWidth="211.6708984375">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tablee" layoutX="35.0" layoutY="80.0" prefHeight="248.0" prefWidth="560.0">
+        <columns>
+          <TableColumn fx:id="Code" editable="false" prefWidth="300.0" text="Code" />
+          <TableColumn fx:id="Pourcentage" editable="false" prefWidth="173.0" text="Pourcentage" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnRe" layoutX="35.0" layoutY="397.0" mnemonicParsing="false" onAction="#toMenu" text="Retour" />
+      <Button fx:id="btnGenerate" layoutX="434.0" layoutY="343.0" mnemonicParsing="false" onAction="#GenerateCoupon" prefHeight="31.0" prefWidth="161.0" text="Generate Coupon" />
+      <Button fx:id="deletebtn" layoutX="345.0" layoutY="343.0" mnemonicParsing="false" text="Delete" />
+   </children>
+</AnchorPane>

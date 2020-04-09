@@ -23,7 +23,7 @@ public class Commande {
     
 
     public Commande(int id,String date,  String etat,String typePaiment, int panier_id,int livraison_id) {
-           this.id = id;
+        this.id = id;
         this.date = date;
     
         this.etat = etat;
@@ -36,6 +36,13 @@ public class Commande {
         this.date = date;
         this.etat = etat;
     }
+    
+    public Commande(int id, String date, String etat, String typePaiment) {
+        this.date = date;
+        this.etat = etat;
+        this.id = id;
+        this.typePaiment = typePaiment;
+    }    
 
     public Commande(String date, String etat,String typePaiment,int panier_id,int livraison_id) {
         this.date = date;
@@ -44,6 +51,10 @@ public class Commande {
         this.livraison_id = livraison_id;
         this.panier_id = panier_id;
 
+    }
+
+    public Commande() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getPanier_id() {
@@ -101,9 +112,5 @@ public class Commande {
     public String toString() {
         return "Commande{" + "date=" + date + ", id=" + id + ", etat=" + etat + ", typePaiment=" + typePaiment + ", panier_id=" + panier_id + ", livraison_id=" + livraison_id + '}';
     }
-
-
-    
-    
 
 }

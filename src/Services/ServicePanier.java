@@ -143,7 +143,11 @@ public class ServicePanier {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-    return panier;
+        if(panier != null)
+            return panier;
+        else {
+            return null;
+        }
     }
     
       

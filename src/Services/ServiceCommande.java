@@ -65,10 +65,10 @@ public class ServiceCommande {
         try {
             PreparedStatement pt = conx.prepareStatement("UPDATE `commande` SET `etat`=? ,`date`=? ,`TypePaiment`=? where Id=?");
 
-            pt.setString(1, etat);
-            pt.setString(2, Date);
-            pt.setString(3, TypePaiment);
-            pt.setInt(4, id);
+            pt.setString(3, etat);
+            pt.setString(4, Date);
+            pt.setString(5, TypePaiment);
+            pt.setInt(1, id);
            
 
             pt.executeUpdate();
@@ -89,36 +89,23 @@ public class ServiceCommande {
             Logger.getLogger(ServiceCommande.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    
 
-    public List<Commande> afficherCommandeConf() throws SQLException {
+    public List<Commande> afficherCommandeList() throws SQLException {
         List<Commande> commande = new ArrayList<>();
         Statement st;
         st = conx.createStatement();
-        ResultSet rs = st.executeQuery("SELECT * FROM `commande` WHERE `etat`=confirmée");
+        ResultSet rs = st.executeQuery("SELECT * FROM `commande`");
         while (rs.next()) {
             int id =rs.getInt(1);
-            String etat = rs.getString(2);
-            String date = rs.getString(3);
+            String date = rs.getString(2);
+            String etat = rs.getString(3);
             String TypePaiment = rs.getString(4);
 
            
-            Commande c = new Commande(date, etat);
-            commande.add(c);
-        }
-        return commande;
-    }
-       public List<Commande> afficherCommandeEnAttente() throws SQLException {
-        List<Commande> commande = new ArrayList<>();
-        Statement st;
-        st = conx.createStatement();
-        ResultSet rs = st.executeQuery("SELECT * FROM `commande` WHERE `etat`='en_attente'");
-        while (rs.next()) {
-            int id =rs.getInt(1);
-            String etat = rs.getString(2);
-            String date = rs.getString(3);
-            String TypePaiment = rs.getString(4);
-           
-            Commande c = new Commande(date, etat);
+            Commande c = new Commande(id, date, etat, TypePaiment);
+            System.out.println("got commande: "+ c.toString());
             commande.add(c);
         }
         return commande;

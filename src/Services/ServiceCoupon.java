@@ -7,6 +7,7 @@ package Services;
 
 
 import Entities.Coupon;
+import Entities.Produit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,7 +44,7 @@ public class ServiceCoupon {
   
     public void DeleteClasse(Coupon c) {
         try {
-            String requete = "delete from classes where ? = code";
+            String requete = "delete from Coupon where ? = code";
             PreparedStatement pst = conx.prepareStatement(requete);
             pst.setString(1, c.getCode());
             pst.executeUpdate();
@@ -98,5 +99,29 @@ public class ServiceCoupon {
     }
     return c;
   }
+    
+    public List<Coupon> ListCoupon() {
+        List<Coupon> Mylist = new ArrayList<>();
+        try {
+            String requete = "select * from Coupon";
+            PreparedStatement pst = conx.prepareStatement(requete);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Coupon c = new Coupon();
+                c.setCode(rs.getString("Code"));
+                c.setPourcentage(rs.getInt("Pourcentage"));
+                
+                Mylist.add(c);
+            }
+                    System.out.println("list length ");
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return Mylist;
+    }
+    
+    
+    
     
 }
