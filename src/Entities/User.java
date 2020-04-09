@@ -4,26 +4,28 @@
  * and open the template in the editor.
  */
 package Entities;
+    
+import java.util.Objects;
 
 /**
  *
- * @author laoui
+ * @author Souhaiel
  */
 public class User {
-    
-    int id;
-    String nom;
-    String prenom;
-    String address;
-    String date_naissance;
-    String ville;
-    String email;
-    String username;
-    String password;
-    String carte_fid_id;
-    
+    private int id ;
+    private String username ;
+    private String mail ;
+    private String mdp ;
+    private String nom;
+    private String prenom;
+    private String address;
+    private String ville;
+    private String date_naissance;
+    private String carte_fid_id;
 
-    public User(int id, String nom, String prenom, String address, String date_naissance,String Password, String ville,String carte_fid_id,String email,String username) {
+    public User(){}
+
+    public User(int id, String username, String mail, String mdp) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -31,37 +33,12 @@ public class User {
         this.date_naissance = date_naissance;
         this.ville = ville;
         this.carte_fid_id = carte_fid_id;
-        this.email = email;
         this.username = username;
-        this.password = password;
-        
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getCarte_fid_id() {
-        return carte_fid_id;
-    }
-
-    public void setCarte_fid_id(String carte_fid_id) {
-        this.carte_fid_id = carte_fid_id;
+        this.mail = mail;
+        this.mdp = mdp;
     }
     
-    
+
 
     public int getId() {
         return id;
@@ -108,13 +85,84 @@ public class User {
     }
 
     public void setVille(String ville) {
-        this.ville = ville;
+        this.ville = ville ;
+    }
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getMdp() {
+        return mdp;
+    }
+
+    public void setMdp(String mdp) {
+        this.mdp = mdp;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 43 * hash + this.id;
+        hash = 43 * hash + Objects.hashCode(this.username);
+        hash = 43 * hash + Objects.hashCode(this.mail);
+        hash = 43 * hash + Objects.hashCode(this.mdp);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final User other = (User) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (!Objects.equals(this.username, other.username)) {
+            return false;
+        }
+        if (!Objects.equals(this.mail, other.mail)) {
+            return false;
+        }
+        if (!Objects.equals(this.mdp, other.mdp)) {
+            return false;
+        }
+        return true;
+    }
+
+    public String getCarte_fid_id() {
+        return carte_fid_id;
+    }
+
+    public void setCarte_fid_id(String carte_fid_id) {
+        this.carte_fid_id = carte_fid_id;
     }
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", address=" + address + ", date_naissance=" + date_naissance + ", ville=" + ville + ", email=" + email + ", username=" + username + ", password=" + password + ", carte_fid_id=" + carte_fid_id + '}';
+        return "User{" + "id=" + id + ", username=" + username + ", mail=" + mail + ", mdp=" + mdp + ", nom=" + nom + ", prenom=" + prenom + ", address=" + address + ", ville=" + ville + ", date_naissance=" + date_naissance + ", carte_fid_id=" + carte_fid_id + '}';
     }
+    
+    
+
 
     
 }

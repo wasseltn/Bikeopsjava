@@ -12,14 +12,18 @@ import Services.ServiceProduit;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -36,6 +40,9 @@ public class AjoutCategorieController implements Initializable {
     private TextField tfdescc;
     @FXML
     private Button btnc;
+    @FXML
+    private Button btnret;
+    
 
     /**
      * Initializes the controller class.
@@ -51,6 +58,7 @@ public class AjoutCategorieController implements Initializable {
       
             String name = tfnamec.getText();
             String desc = tfdescc.getText();
+            
             if (tfidc.getText().length() == 0 ||  tfnamec.getText().length() == 0 || tfdescc.getText().length() == 0) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("veuillez remplir le formulaire!!");
@@ -59,7 +67,7 @@ public class AjoutCategorieController implements Initializable {
                 alert.showAndWait();
             }
 
-            Categorie c = new Categorie(id, name, desc) ;
+            Categorie c = new Categorie(id, name, desc);
             ServiceCategorie sc = new ServiceCategorie();
             sc.addCategorie(c);
 
@@ -74,6 +82,21 @@ public class AjoutCategorieController implements Initializable {
 
         } catch (IOException ex) {
             System.out.println("Error" + ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void retour(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
+            Stage stage = (Stage) btnret.getScene().getWindow();
+            stage.close();
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(AjoutProduitController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     }

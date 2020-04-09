@@ -17,7 +17,14 @@ public class Categorie {
     private String name ;
     private String desc ;
     
+    
     public Categorie(){} 
+
+    public Categorie(int id, String name, String desc) {
+        this.id = id;
+        this.name = name;
+        this.desc = desc;
+    }
 
     public int getId() {
         return id;
@@ -43,12 +50,6 @@ public class Categorie {
         this.desc = desc;
     }
 
-    public Categorie(int id, String name, String desc) {
-        this.id = id;
-        this.name = name;
-        this.desc = desc;
-    }
-
     @Override
     public String toString() {
         return "Categorie{" + "id=" + id + ", name=" + name + ", desc=" + desc + '}';
@@ -56,10 +57,10 @@ public class Categorie {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + this.id;
-        hash = 89 * hash + Objects.hashCode(this.name);
-        hash = 89 * hash + Objects.hashCode(this.desc);
+        int hash = 3;
+        hash = 13 * hash + this.id;
+        hash = 13 * hash + Objects.hashCode(this.name);
+        hash = 13 * hash + Objects.hashCode(this.desc);
         return hash;
     }
 
@@ -86,6 +87,13 @@ public class Categorie {
         }
         return true;
     }
+
+   
+        
+    
+
+   
+    
     
   
     

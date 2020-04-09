@@ -5,8 +5,8 @@
  */
 package Interfaces;
 
-import Entities.Produit;
-import Services.ServiceProduit;
+import Entities.User;
+import Services.ServiceUser;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,20 +28,18 @@ import javafx.stage.Stage;
  *
  * @author Souhaiel
  */
-public class AjoutProduitController implements Initializable {
+public class AjoutUserController implements Initializable {
 
     @FXML
-    private TextField tfid;
+    private TextField tfidu;
     @FXML
-    private TextField tfqte;
+    private TextField tfusernameu;
     @FXML
-    private TextField tfprix;
+    private TextField tfmailu;
     @FXML
-    private Button btnvalider;
+    private TextField tfmdpu;
     @FXML
-    private TextField tfname;
-    @FXML
-    private TextField tfdesc;
+    private Button btnu;
     @FXML
     private Button btnret;
 
@@ -54,14 +52,14 @@ public class AjoutProduitController implements Initializable {
     }
 
     @FXML
-    private void saveproduit(ActionEvent event) {
+    private void saveruser(ActionEvent event) {
         try {
-            int id = Integer.parseInt(tfid.getText());
-            int qte = Integer.parseInt(tfqte.getText());
-            float prix = Integer.parseInt(tfprix.getText());
-            String name = tfname.getText();
-            String desc = tfdesc.getText();
-            if (tfid.getText().length() == 0 || tfqte.getText().length() == 0 || tfprix.getText().length() == 0 || tfname.getText().length() == 0 || tfdesc.getText().length() == 0) {
+            int idu = Integer.parseInt(tfidu.getText());
+            String username = tfusernameu.getText();
+
+            String mail = tfmailu.getText();
+            String mdp = tfmdpu.getText();
+            if (tfidu.getText().length() == 0 || tfusernameu.getText().length() == 0 || tfmailu.getText().length() == 0 || tfmdpu.getText().length() == 0) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("veuillez remplir le formulaire!!");
                 alert.setHeaderText("Attention !");
@@ -69,20 +67,19 @@ public class AjoutProduitController implements Initializable {
                 alert.showAndWait();
             }
 
-            Produit p = new Produit(id, qte, id, name, desc);
-            ServiceProduit sp = new ServiceProduit();
-            sp.addProduit(p);
+            User u = new User(idu, username, mail, mdp);
+            ServiceUser su = new ServiceUser();
+            su.addUser(u);
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Details.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("DetailsUser.fxml"));
             Parent root = loader.load();
-            DetailsController dw = loader.getController();
-            dw.setTextID("" + p.getId());
-            dw.setTextQte("" + p.getQte());
-            dw.setTextPrix("" + p.getPrix());
-            dw.setTextName(p.getName());
-            dw.setTextDesc(p.getDesc());
+            DetailsUserController du = loader.getController();
+            du.setTextID("" + u.getId());
+            du.setTextUsername(u.getUsername());
+            du.setTextMail(u.getMail());
+            du.setTextMdp(u.getMdp());
 
-            tfid.getScene().setRoot(root);
+            tfidu.getScene().setRoot(root);
 
         } catch (IOException ex) {
             System.out.println("Error" + ex.getMessage());
@@ -103,5 +100,4 @@ public class AjoutProduitController implements Initializable {
             Logger.getLogger(AjoutProduitController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
 }
