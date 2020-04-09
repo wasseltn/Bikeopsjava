@@ -5,12 +5,19 @@
  */
 package bikeops;
 
-import Entities.Livraison;
-import Entities.Livreur;
+
+
+import Entities.Categorie;
 import Entities.Produit;
+import Services.ServiceCategorie;
 import Services.ServiceLivraison;
 import Services.ServiceLivreur;
 import Services.ServiceProduit;
+
+import Services.ServicePanier;
+import Services.ServiceLivreur;
+import Services.ServiceLivraison;
+
 import utils.ConnexionBD;
 
 /**
@@ -23,10 +30,11 @@ public class BikeOps {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+
         ConnexionBD conx = ConnexionBD.getinstance();
-        Produit p = new Produit(1, 100, 100, "souhaiel"  , "souhaiel");
-        ServiceProduit L = new ServiceProduit();
-        L.supprimerProduit(2);
+        Categorie c = new Categorie(1, "souhaiel", "souhaiel");
+        ServiceCategorie sc = new ServiceCategorie();
+        sc.addCategorie(c);
         
 
     }
