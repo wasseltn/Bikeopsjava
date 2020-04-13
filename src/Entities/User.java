@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package Entities;
-    
+
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -12,33 +13,48 @@ import java.util.Objects;
  * @author Souhaiel
  */
 public class User {
-    private int id ;
-    private String username ;
-    private String mail ;
-    private String mdp ;
+
+    private int id;
+    private String username;
+    private String mail;
+    private String mdp;
     private String nom;
     private String prenom;
     private String address;
-    private String ville;
-    private String date_naissance;
-    private String carte_fid_id;
+    private Date date_naiss ;
 
-    public User(){}
-
-    public User(int id, String username, String mail, String mdp) {
+    public User(int id, String username, String mail, String mdp, String nom, String prenom, String address) {
         this.id = id;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.address = address;
-        this.date_naissance = date_naissance;
-        this.ville = ville;
-        this.carte_fid_id = carte_fid_id;
         this.username = username;
         this.mail = mail;
         this.mdp = mdp;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.address = address;
     }
-    
 
+    public Date getDate_naiss() {
+        return date_naiss;
+    }
+
+    public void setDate_naiss(Date date_naiss) {
+        this.date_naiss = date_naiss;
+    }
+
+    public User(int id, String username, String mail, String mdp, String nom, String prenom, String address, Date date_naiss) {
+        this.id = id;
+        this.username = username;
+        this.mail = mail;
+        this.mdp = mdp;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.address = address;
+        this.date_naiss = date_naiss;
+    }
+
+    
+    public User() {
+    }
 
     public int getId() {
         return id;
@@ -46,6 +62,30 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getMdp() {
+        return mdp;
+    }
+
+    public void setMdp(String mdp) {
+        this.mdp = mdp;
     }
 
     public String getNom() {
@@ -72,52 +112,22 @@ public class User {
         this.address = address;
     }
 
-    public String getDate_naissance() {
-        return date_naissance;
-    }
-
-    public void setDate_naissance(String date_naissance) {
-        this.date_naissance = date_naissance;
-    }
-
-    public String getVille() {
-        return ville;
-    }
-
-    public void setVille(String ville) {
-        this.ville = ville ;
-    }
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public String getMdp() {
-        return mdp;
-    }
-
-    public void setMdp(String mdp) {
-        this.mdp = mdp;
+    @Override
+    public String toString() {
+        return "User{" + "id=" + id + ", username=" + username + ", mail=" + mail + ", mdp=" + mdp + ", nom=" + nom + ", prenom=" + prenom + ", address=" + address + ", date_naissance=" + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 43 * hash + this.id;
-        hash = 43 * hash + Objects.hashCode(this.username);
-        hash = 43 * hash + Objects.hashCode(this.mail);
-        hash = 43 * hash + Objects.hashCode(this.mdp);
+        int hash = 5;
+        hash = 41 * hash + this.id;
+        hash = 41 * hash + Objects.hashCode(this.username);
+        hash = 41 * hash + Objects.hashCode(this.mail);
+        hash = 41 * hash + Objects.hashCode(this.mdp);
+        hash = 41 * hash + Objects.hashCode(this.nom);
+        hash = 41 * hash + Objects.hashCode(this.prenom);
+        hash = 41 * hash + Objects.hashCode(this.address);
+
         return hash;
     }
 
@@ -145,24 +155,17 @@ public class User {
         if (!Objects.equals(this.mdp, other.mdp)) {
             return false;
         }
+        if (!Objects.equals(this.nom, other.nom)) {
+            return false;
+        }
+        if (!Objects.equals(this.prenom, other.prenom)) {
+            return false;
+        }
+        if (!Objects.equals(this.address, other.address)) {
+            return false;
+        }
+
         return true;
     }
 
-    public String getCarte_fid_id() {
-        return carte_fid_id;
-    }
-
-    public void setCarte_fid_id(String carte_fid_id) {
-        this.carte_fid_id = carte_fid_id;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" + "id=" + id + ", username=" + username + ", mail=" + mail + ", mdp=" + mdp + ", nom=" + nom + ", prenom=" + prenom + ", address=" + address + ", ville=" + ville + ", date_naissance=" + date_naissance + ", carte_fid_id=" + carte_fid_id + '}';
-    }
-    
-    
-
-
-    
 }
