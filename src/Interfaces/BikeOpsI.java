@@ -25,7 +25,7 @@ public class BikeOpsI extends Application {
     public void start(Stage primaryStage) {
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("MenuFront.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("Menu");
             primaryStage.setScene(scene);

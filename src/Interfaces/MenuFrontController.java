@@ -24,26 +24,27 @@ import javafx.stage.Stage;
  *
  * @author laoui
  */
-public class CommandefinalController implements Initializable {
+public class MenuFrontController implements Initializable {
 
     @FXML
-    private Button homebtn;
+    private Button UserAffichebtn;
+    @FXML
+    private Button panierbtn;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        
-        
+        // TODO
     }    
 
     @FXML
-    private void home(ActionEvent event) {
-           try {
-            Parent root = FXMLLoader.load(getClass().getResource("MenuFront.fxml"));
-            Stage stage = (Stage) homebtn.getScene().getWindow();
+    private void UserAffiche(ActionEvent event) {
+        
+         try {
+            Parent root = FXMLLoader.load(getClass().getResource("UserAffiche.fxml"));
+            Stage stage = (Stage) UserAffichebtn.getScene().getWindow();
             stage.close();
             Scene scene = new Scene(root);
 
@@ -52,6 +53,25 @@ public class CommandefinalController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(CouponListController.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        
     }
+
+    @FXML
+    private void panier(ActionEvent event) {
+         try {
+            Parent root = FXMLLoader.load(getClass().getResource("Panier.fxml"));
+            Stage stage = (Stage) panierbtn.getScene().getWindow();
+            stage.close();
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(CouponListController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
     
 }

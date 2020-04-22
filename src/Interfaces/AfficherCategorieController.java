@@ -37,7 +37,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
-import org.controlsfx.control.Notifications;
+//import org.controlsfx.control.Notifications;
 
 /**
  * FXML Controller class
@@ -165,7 +165,7 @@ public class AfficherCategorieController implements Initializable {
             ServiceCategorie sc = new ServiceCategorie();
             sc.supprimerCategorie(c.getId());
             System.out.println("Categorie deleted");
-            Notifications.create().title("Supression").text("Categorie supprimé").showConfirm();
+          //  Notifications.create().title("Supression").text("Categorie supprimé").showConfirm();
         } else if (res == 1) {
             System.out.println("Pressed No");
 

@@ -30,15 +30,16 @@ public class ServiceCommande {
     public void ajouterCommande(Commande c) {
         Statement st;
         try {
-            String req = " INSERT INTO `commande`( `date`, `etat`,`typePaiment`,`panier_id`,`livraison_id`) VALUES(?,?,?,?,?)";
+            String req = " INSERT INTO `commande`( `date`, `etat`,`typePaiment`,`panier_id`,`typeLivraison`, `utilisateur_id`) VALUES(?,?,?,?,?)";
             PreparedStatement pst = conx.prepareStatement(req);
           // pst.setInt(1 ,c.getId());
 
-            pst.setDate(1, Date.valueOf(c.getDate()));
+            pst.setDate(1, (Date) c.getDatee());
             pst.setString(2, c.getEtat());
            pst.setString(3, c.getTypePaiment());
            pst.setInt(4, c.getPanier_id());
-           pst.setInt(5,c.getLivraison_id());
+           pst.setString(5, c.getTypeLivraison());
+           pst.setInt(6, c.getUser_id());
 
             pst.executeUpdate();
         } catch (SQLException ex) {
@@ -109,6 +110,18 @@ public class ServiceCommande {
             commande.add(c);
         }
         return commande;
+    }
+    
+    public void confirmerCommande (int id) {
+              try {
+            PreparedStatement pt = conx.prepareStatement(" update commande set etat = ? where id = ? ");
+            pt.setString(1, "confirmé");
+            pt.setInt(2, id);
+
+            pt.execute();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } 
     }
 }
 

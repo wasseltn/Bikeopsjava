@@ -99,8 +99,9 @@ public class ServiceProduit {
         public Produit getProduitbyId( int produit_id) {
             Produit p = new Produit();
         try {
-            String requete = "select * from produit";
+            String requete = "select * from produit where id = ?";
             PreparedStatement pst = conx.prepareStatement(requete);
+            pst.setInt(1, produit_id);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 p.setQte(rs.getInt("stock"));

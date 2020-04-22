@@ -39,7 +39,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
-import org.controlsfx.control.Notifications;
+//import org.controlsfx.control.Notifications;
 
 /**
  * FXML Controller class
@@ -189,7 +189,7 @@ public class AfficherUserController implements Initializable {
             ServiceUser su = new ServiceUser();
             su.supprimerUser(u.getId());
             System.out.println("Utilisateur deleted");
-            Notifications.create().title("Supression").text("Utilisateur supprimé").showConfirm();
+          //  Notifications.create().title("Supression").text("Utilisateur supprimé").showConfirm();
         } else if (res == 1) {
             System.out.println("Pressed No");
 

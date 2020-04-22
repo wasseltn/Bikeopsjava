@@ -7,9 +7,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="465.0" prefWidth="641.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaces.CouponListController">
+<AnchorPane id="AnchorPane" prefHeight="419.0" prefWidth="641.0" styleClass="bodybg" stylesheets="@souhaiel.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaces.CouponListController">
    <children>
-      <Text layoutX="35.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coupon List" wrappingWidth="211.6708984375">
+      <Text fill="WHITE" layoutX="35.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coupon List" wrappingWidth="211.6708984375">
          <font>
             <Font name="System Bold" size="33.0" />
          </font>
@@ -20,8 +20,8 @@
           <TableColumn fx:id="Pourcentage" editable="false" prefWidth="173.0" text="Pourcentage" />
         </columns>
       </TableView>
-      <Button fx:id="btnRe" layoutX="35.0" layoutY="397.0" mnemonicParsing="false" onAction="#toMenu" text="Retour" />
-      <Button fx:id="btnGenerate" layoutX="434.0" layoutY="343.0" mnemonicParsing="false" onAction="#GenerateCoupon" prefHeight="31.0" prefWidth="161.0" text="Generate Coupon" />
-      <Button fx:id="deletebtn" layoutX="345.0" layoutY="343.0" mnemonicParsing="false" text="Delete" />
+      <Button fx:id="btnRe" layoutX="35.0" layoutY="359.0" mnemonicParsing="false" onAction="#toMenu" text="Retour" />
+      <Button fx:id="btnGenerate" layoutX="434.0" layoutY="359.0" mnemonicParsing="false" onAction="#GenerateCoupon" prefHeight="31.0" prefWidth="161.0" text="Generate Coupon" />
+      <Button fx:id="deletebtn" layoutX="345.0" layoutY="359.0" mnemonicParsing="false" text="Delete" />
    </children>
 </AnchorPane>

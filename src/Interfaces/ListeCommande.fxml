@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.TextField?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="763.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaces.ListeCommandeController">
+<AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="763.0" styleClass="bodybg" stylesheets="@souhaiel.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaces.ListeCommandeController">
    <children>
-      <Text layoutX="36.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des commandes">
+      <Text fill="WHITE" layoutX="36.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des commandes">
          <font>
             <Font name="Calibri Bold" size="38.0" />
          </font>
@@ -25,8 +25,8 @@
         </columns>
       </TableView>
       <Button fx:id="btnreturn" layoutX="36.0" layoutY="422.0" mnemonicParsing="false" onAction="#backtomenu" prefHeight="45.0" prefWidth="91.0" text="Retour" />
-      <TextField fx:id="tfrech" layoutX="576.0" layoutY="68.0" prefHeight="28.0" prefWidth="123.0" />
-      <Text layoutX="485.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recherche :" textAlignment="CENTER" wrappingWidth="91.00000333786011" />
+      <TextField fx:id="tfrech" layoutX="541.0" layoutY="75.0" prefHeight="28.0" prefWidth="123.0" />
+      <Text fill="WHITE" layoutX="450.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recherche :" textAlignment="CENTER" wrappingWidth="91.00000333786011" />
       <Button fx:id="confirmbtn" layoutX="348.0" layoutY="415.0" mnemonicParsing="false" onAction="#confirme" prefHeight="45.0" prefWidth="183.0" text="Confirmer Commande" />
       <Button fx:id="deletebtn" layoutX="560.0" layoutY="415.0" minWidth="48.0" mnemonicParsing="false" onAction="#delete" prefHeight="45.0" prefWidth="183.0" text="Supprimer Commande" />
    </children>

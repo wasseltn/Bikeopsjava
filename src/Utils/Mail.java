@@ -32,8 +32,8 @@ public class Mail {
         properties.put("mail.smtp.port", "587");
         properties.put("mail.smtp.ssl.trust", "*");
 
-        String myAccountEmail = "bikeops14@gmail.com";
-        String password = "******";
+        String myAccountEmail = "laouiniwassel93@gmail.com";
+        String password = "Xbox360wassel";
 
         Session session = Session.getInstance(properties, new Authenticator() {
             protected javax.mail.PasswordAuthentication getPasswordAuthentication() {

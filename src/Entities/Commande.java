@@ -5,6 +5,8 @@
  */
 package Entities;
 
+
+import java.sql.Date;
 import java.util.Objects;
 import javafx.beans.property.StringProperty;
 
@@ -18,8 +20,11 @@ public class Commande {
     private int id;
     private String etat;
     private String typePaiment;
+    private String typeLivraison;
     private int panier_id; 
     private int livraison_id;
+    private int user_id;
+    Date datee;
     
 
     public Commande(int id,String date,  String etat,String typePaiment, int panier_id,int livraison_id) {
@@ -53,9 +58,48 @@ public class Commande {
 
     }
 
+    public Commande(Date datee, String etat, String typePaiment, String typeLivraison, int panier_id, int user_id) {
+        this.datee = datee;
+        this.etat = etat;
+        this.typePaiment = typePaiment;
+        this.typeLivraison = typeLivraison;
+        this.panier_id = panier_id;
+        this.user_id = user_id;
+    }
+    
+   
+
     public Commande() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public String getTypeLivraison() {
+        return typeLivraison;
+    }
+
+    public void setTypeLivraison(String typeLivraison) {
+        this.typeLivraison = typeLivraison;
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public Date getDatee() {
+        return datee;
+    }
+
+    public void setDatee(Date datee) {
+        this.datee = datee;
+    }
+    
+    
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
+    
+    
 
     public int getPanier_id() {
         return panier_id;

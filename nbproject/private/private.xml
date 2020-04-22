@@ -5,7 +5,11 @@
         <group>
             <file>file:/C:/Users/laoui/Documents/NetBeansProjects/BikeOps/src/Interfaces/ListeCommandeController.java</file>
             <file>file:/C:/Users/laoui/Documents/NetBeansProjects/BikeOps/src/Interfaces/BikeOpsI.java</file>
-            <file>file:/C:/Users/laoui/Documents/NetBeansProjects/BikeOps/src/Services/ServiceCoupon.java</file>
+            <file>file:/C:/Users/laoui/Documents/NetBeansProjects/BikeOps/src/Services/ServicePanier.java</file>
+            <file>file:/C:/Users/laoui/Documents/NetBeansProjects/BikeOps/src/Services/ServiceCommande.java</file>
+            <file>file:/C:/Users/laoui/Documents/NetBeansProjects/BikeOps/src/Interfaces/CouponListController.java</file>
+            <file>file:/C:/Users/laoui/Documents/NetBeansProjects/BikeOps/src/Interfaces/MenuController.java</file>
+            <file>file:/C:/Users/laoui/Documents/NetBeansProjects/BikeOps/src/Interfaces/CommandefinalController.java</file>
         </group>
     </open-files>
 </project-private>

@@ -8,7 +8,7 @@ package Interfaces;
 import Entities.Commande;
 import Entities.Produit;
 import Services.ServiceCommande;
-import com.gluonhq.charm.glisten.control.TextField;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -34,6 +34,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
@@ -129,42 +130,66 @@ public class ListeCommandeController implements Initializable {
         tablee.setItems(sortedData);
 
      
-//
-//        tablee.setOnMouseClicked(event -> {
-//            //pour modifier un produit il faut faire deux click
-//            if (event.getClickCount() == 1) {
-//                c1 = tablee.getItems().get(tablee.getSelectionModel().getSelectedIndex());
-//                deletebtn.setOnAction(new EventHandler<ActionEvent>() {
-//
-//                    @Override
-//                    public void handle(ActionEvent event) {
-//                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-//                        alert.setTitle("Confirmation de suppression");
-//                        alert.setContentText(" Voulez-vous supprimer cette commande");
-//                        alert.setHeaderText(null);
-//
-//                        Optional<ButtonType> resultat = alert.showAndWait();
-//                        if (resultat.get() == ButtonType.OK) {
-//                            c.supprimerCommande(id);
-//                            try {
-//                                ref();
-//                            } catch (SQLException ex) {
-//                                Logger.getLogger(ListeCommandeController.class.getName()).log(Level.SEVERE, null, ex);
-//                            }
-//                        } else {
-//                            System.out.println("cancel");
-//                        }
-//                    }
-//                });
-//            }
-//
-//        });
-//
-//    }
-//    
-//    public void ref() throws SQLException {    //focntion refrechi tabbkle mte3 affichage a chaque modif
-//        tablee.getItems().clear();
-//        tablee.getItems().addAll(c.afficherCommandeList());
+
+        tablee.setOnMouseClicked(event -> {
+            //pour modifier un produit il faut faire deux click
+            if (event.getClickCount() == 1) {
+                Commande c1 = tablee.getItems().get(tablee.getSelectionModel().getSelectedIndex());
+                deletebtn.setOnAction(new EventHandler<ActionEvent>() {
+
+                    @Override
+                    public void handle(ActionEvent event) {
+                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                        alert.setTitle("Confirmation de suppression");
+                        alert.setContentText(" Voulez-vous supprimer cette commande");
+                        alert.setHeaderText(null);
+
+                        Optional<ButtonType> resultat = alert.showAndWait();
+                        if (resultat.get() == ButtonType.OK) {
+                            c.supprimerCommande(c1.getId());
+                            try {
+                                ref();
+                            } catch (SQLException ex) {
+                                Logger.getLogger(ListeCommandeController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        } else {
+                            System.out.println("cancel");
+                        }
+                    }
+                });
+                
+                   confirmbtn.setOnAction(new EventHandler<ActionEvent>() {
+
+                    @Override
+                    public void handle(ActionEvent event) {
+                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                        alert.setTitle("Confirmation de Commande");
+                        alert.setContentText(" Voulez-vous Confirmer cette commande?");
+                        alert.setHeaderText(null);
+
+                        Optional<ButtonType> resultat = alert.showAndWait();
+                        if (resultat.get() == ButtonType.OK) {
+                            c.confirmerCommande(c1.getId());
+                            try {
+                                ref();
+                            } catch (SQLException ex) {
+                                Logger.getLogger(ListeCommandeController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        } else {
+                            System.out.println("cancel");
+                        }
+                    }
+                });
+            }
+
+        });
+
+    }
+    
+    public void ref() throws SQLException {    //focntion refrechi tabbkle mte3 affichage a chaque modif
+         ServiceCommande c = new ServiceCommande();
+        tablee.getItems().clear();
+        tablee.getItems().addAll(c.afficherCommandeList());
     }
 //    
     @FXML
